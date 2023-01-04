@@ -121,7 +121,7 @@ App* App::Create() {
 }
 
 App* App::Create(const AppOptions& options) {  // NOLINT
-  return Create(options, kDefaultAppName);
+  return Create(options, GetDefaultAppName());
 }
 
 App* App::Create(const AppOptions& options, const char* name) {  // NOLINT

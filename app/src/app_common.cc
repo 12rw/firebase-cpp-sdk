@@ -54,7 +54,18 @@ void CheckCompilerString(const char* input) {
 #endif  // FIREBASE_LINUX_BUILD_CONFIG_STRING
 
 // Default app name.
-const char* const kDefaultAppName = "__FIRAPP_DEFAULT";
+const char* const DEFAULT_APPNAME = "__FIRAPP_DEFAULT";
+std::string kDefaultAppName = DEFAULT_APPNAME;
+
+const char* GetDefaultAppName()
+{
+    return kDefaultAppName.c_str();
+}
+
+void SetDefaultAppName(const char* InDefaultAppName)
+{
+    kDefaultAppName = InDefaultAppName ? InDefaultAppName : DEFAULT_APPNAME;
+}
 
 namespace app_common {
 
@@ -394,7 +405,7 @@ void DestroyAllApps() {
 
 // Determine whether the specified app name refers to the default app.
 bool IsDefaultAppName(const char* name) {
-  return strcmp(kDefaultAppName, name) == 0;
+  return kDefaultAppName == name;
 }
 
 void RegisterLibrary(const char* library, const char* version) {

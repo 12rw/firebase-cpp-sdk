@@ -89,7 +89,8 @@ enum InitResult {
 };
 
 /// @brief Default name for firebase::App() objects.
-extern const char* const kDefaultAppName;
+const char* GetDefaultAppName();
+void SetDefaultAppName(const char* InDefaultAppName);
 
 /// @brief Options that control the creation of a Firebase App.
 /// @if cpp_examples

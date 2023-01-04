@@ -28,7 +28,8 @@
 namespace firebase {
 
 // Default app name.
-extern const char* const kDefaultAppName;
+const char* GetDefaultAppName();
+void SetDefaultAppName(const char* InDefaultAppName);
 
 namespace app_common {
 
